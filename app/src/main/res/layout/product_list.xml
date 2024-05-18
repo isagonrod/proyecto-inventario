@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".controller.ProductList">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_list"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/pink"
+        android:layout_gravity="center"/>
+
+    <SearchView
+        android:id="@+id/searchingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Indica el producto que quieres buscar"
+        app:actionViewClass="androix.appcompat.widget.SearchView"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/product_item"/>
+
+</LinearLayout>

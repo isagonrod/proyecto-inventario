@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Inventario</string>
+    <string name="hint_category">Categoría:</string>
+    <string name="hint_amount_short">Cant:</string>
+    <string name="hint_amount">Cantidad:</string>
+    <string name="hint_price">Precio:</string>
+    <string name="euro">€</string>
+    <string name="app_operation">Funcionamiento de la APP</string>
+    <string name="shopping_list">Lista de la Compra</string>
+    <string name="menu_add_new_category">Añadir nueva categoría</string>
+    <string name="menu_add_new_product">Agregar nuevo producto</string>
+    <string name="menu_product_complete_list">Ver lista completa de productos</string>
+    <string name="button_finish_shopping">Terminar compra</string>
+    <string name="product_list">Lista de Productos</string>
+    <string name="obl_hint_name">Nombre:*</string>
+    <string name="hint_brand">Marca:</string>
+    <string name="obl_hint_amount">Cantidad:*</string>
+    <string name="obl_hint_shop">Tienda:*</string>
+    <string name="obl_hint_category">Categoría:*</string>
+    <string name="hint_name">Nombre:</string>
+    <string name="hint_shop">Tienda:</string>
+</resources>

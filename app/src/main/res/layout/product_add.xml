@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".controller.NewProduct">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/obl_hint_name"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:labelFor="@+id/nameTextView"
+        android:textSize="24sp"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <TextView
+        android:id="@+id/brandTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_brand"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/brandAutocompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/brandTextView"
+        android:textSize="24sp"
+        android:inputType="text"
+        android:completionThreshold="1"
+        android:autoSizeTextType="uniform"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <TextView
+        android:id="@+id/amountTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/obl_hint_amount"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <EditText
+        android:id="@+id/amountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number|numberDecimal"
+        android:labelFor="@+id/amountTextView"
+        android:textSize="24sp"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hint_price"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/priceEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.8"
+            android:inputType="number|numberDecimal"
+            android:labelFor="@+id/priceTextView"
+            android:textSize="24sp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:textAlignment="center"
+            android:text="@string/euro"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/shopTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/obl_hint_shop"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/shopAutocompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/shopTextView"
+        android:textSize="24sp"
+        android:inputType="text"
+        android:completionThreshold="1"
+        android:autoSizeTextType="uniform"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <TextView
+        android:id="@+id/categoryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/obl_hint_category"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <AutoCompleteTextView
+        android:id="@+id/categoryAutocompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/categoryTextView"
+        android:textSize="24sp"
+        android:inputType="text"
+        android:completionThreshold="1"
+        android:autoSizeTextType="uniform"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/save"
+            android:clickable="true"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit"
+            android:clickable="true"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/delete"
+            android:clickable="true"
+            tools:ignore="SpeakableTextPresentCheck"/>
+    </LinearLayout>
+
+</LinearLayout>
