@@ -28,6 +28,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
     public ShoppingAdapter(List<Product> productList) {
         this.productList = productList;
         originalProductList = new ArrayList<>();
+        originalProductList.addAll(productList);
     }
 
     @NonNull
@@ -96,9 +97,15 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
                                 "Por favor, introduce la cantidad comprada",
                                 Toast.LENGTH_LONG).show();
                     } else {
-                        itemView.setBackgroundColor(Color.YELLOW);
-                        productList.get(getAdapterPosition()).setToBuy(1);
-                        productList.get(getAdapterPosition()).setAmount(Integer.parseInt(String.valueOf(amountEditText.getText())));
+                        try {
+                            productList.get(getAdapterPosition()).setAmount(Integer.parseInt(String.valueOf(amountEditText.getText())));
+                            itemView.setBackgroundColor(Color.YELLOW);
+                            productList.get(getAdapterPosition()).setToBuy(1);
+                        } catch (NumberFormatException ex) {
+                            Toast.makeText(itemView.getContext(),
+                                    "Por favor, asegúrate de que la cantidad introducida es numérica y no demasiado grande.",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     }
                 } else {
                     amountEditText.setText("");
