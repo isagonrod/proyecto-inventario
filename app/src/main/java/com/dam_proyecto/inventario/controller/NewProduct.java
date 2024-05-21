@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.dam_proyecto.inventario.MainActivity;
 import com.dam_proyecto.inventario.R;
 import com.dam_proyecto.inventario.model.Brand;
 import com.dam_proyecto.inventario.model.Category;
@@ -117,20 +118,11 @@ public class NewProduct extends AppCompatActivity {
                         0);
 
                 Toast.makeText(NewProduct.this, "PRODUCTO GUARDADO", Toast.LENGTH_LONG).show();
-                clean();
+                goToActivity(MainActivity.class);
             } else {
                 Toast.makeText(NewProduct.this, "ERROR AL GUARDAR PRODUCTO", Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    private void clean() {
-        name.setText("");
-        brand.setText("");
-        amount.setText("");
-        price.setText("");
-        shop.setText("");
-        category.setText("");
     }
 
     /* MENU 2 */
