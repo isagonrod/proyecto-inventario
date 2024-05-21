@@ -111,20 +111,6 @@ public class CategoryRepository extends RepositoryHelper {
         return category;
     }
 
-    public boolean deleteCategory(String categoryName) {
-        boolean correct;
-
-        try {
-            db.execSQL("DELETE FROM " + TABLE_CATEGORY + " WHERE name = '" + categoryName + "'");
-            correct = true;
-        } catch (Exception ex) {
-            ex.toString();
-            correct = false;
-        }
-
-        return correct;
-    }
-
     public void deleteCategory(int categoryId) {
         db.execSQL("DELETE FROM " + TABLE_CATEGORY + " WHERE id = '" + categoryId + "'");
     }
