@@ -170,7 +170,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
             public Provider<String> getActivity() { return getVersion("activity"); }
 
             /**
-             * Returns the version associated to this alias: agp (8.4.0)
+             * Returns the version associated to this alias: agp (7.4.2)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
              * This version was declared in catalog libs.versions.toml

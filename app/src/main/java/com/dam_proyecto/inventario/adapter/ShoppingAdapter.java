@@ -67,7 +67,22 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         return productList.size();
     }
 
+    public int getPositionInListFromItemId(int itemId) {
+        int originalItemPosition = -1;
+
+        for(int i = 0; i < originalProductList.size(); i++) {
+            int currentId = originalProductList.get(i).getId();
+            if (currentId == itemId) {
+                originalItemPosition = i;
+            }
+        }
+
+        return originalItemPosition;
+    }
+
     public void deleteItem(int position) {
+        int originalItemPosition = getPositionInListFromItemId(productList.get(position).getId());
+        originalProductList.remove(originalItemPosition);
         productList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, productList.size());
