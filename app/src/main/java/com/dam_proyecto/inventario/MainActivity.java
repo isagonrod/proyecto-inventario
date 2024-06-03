@@ -22,6 +22,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
+/**
+ * Main screen in which a menu is displayed at the top,
+ * a floating button to add new products to the inventory
+ * and in the central part of the screen buttons related
+ * to the categories of the products created will be created.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView categories;
@@ -29,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
     CategoryAdapter adapter;
     FloatingActionButton btnNewProduct;
 
+    /**
+     * Method to render the main screen elements.
+     *
+     * @param savedInstanceState
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
         btnNewProduct.setOnClickListener(v -> goToActivity(NewProduct.class));
     }
 
-    /* MENU 2 */
-
+    /**
+     * Method to create the top menu.
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -56,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Method for creating top menu options and what they do when you click on them.
+     *
+     * @param item - Menu option pressed.
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -72,6 +95,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Generic method to switch activity/screen.
+     *
+     * @param activity - Activity you want to change to.
+     */
     private void goToActivity(Class activity) {
         Intent intent = new Intent(this, activity);
         startActivity(intent);
