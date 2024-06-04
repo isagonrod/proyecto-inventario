@@ -13,6 +13,11 @@ import com.dam_proyecto.inventario.model.Shop;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that controls methods related to persistence in shop databases.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class ShopRepository extends RepositoryHelper {
 
     Context context;
@@ -26,6 +31,11 @@ public class ShopRepository extends RepositoryHelper {
         this.db = helper.getWritableDatabase();
     }
 
+    /**
+     * Method to list shops from the database.
+     *
+     * @return - Shop list
+     */
     @SuppressLint("Range")
     public List<Shop> showShop() {
         List<Shop> shopList = new ArrayList<>();
@@ -47,6 +57,12 @@ public class ShopRepository extends RepositoryHelper {
         return shopList;
     }
 
+    /**
+     * Method to add a shop to the database.
+     *
+     * @param name - Shop name
+     * @return - Shop id
+     */
     public long addShop(String name) {
         long id = 0;
 
@@ -61,6 +77,13 @@ public class ShopRepository extends RepositoryHelper {
         return id;
     }
 
+    /**
+     * Method to edit the data of a selected shop.
+     *
+     * @param id - Shop id
+     * @param name - Shop name
+     * @return - TRUE if the changes have been saved correctly
+     */
     public boolean editShop(int id, String name) {
         boolean correct;
         ContentValues values = new ContentValues();
@@ -77,6 +100,12 @@ public class ShopRepository extends RepositoryHelper {
         return correct;
     }
 
+    /**
+     * Method to get a shop by name.
+     *
+     * @param name - Shop name
+     * @return - Shop object
+     */
     @SuppressLint("Range")
     public Shop getShop(String name) {
         Shop shop = null;

@@ -6,6 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * Class where the database is created (in the constructor)
+ * and the tables (with SQL statements in the onCreate method)
+ * that it will contain.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class RepositoryHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
@@ -16,10 +23,20 @@ public class RepositoryHelper extends SQLiteOpenHelper {
     public static final String TABLE_BRAND = "marcas";
     public static final String TABLE_CATEGORY = "categorias";
 
+    /**
+     * Constructor where the database is created and its version is controlled.
+     *
+     * @param context
+     */
     public RepositoryHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * Main method where the tables contained in the database are created with SQL statements.
+     *
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
 

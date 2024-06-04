@@ -13,6 +13,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that controls methods related to persistence in brand databases.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class BrandRepository extends RepositoryHelper {
 
     Context context;
@@ -26,6 +31,11 @@ public class BrandRepository extends RepositoryHelper {
         this.db = helper.getWritableDatabase();
     }
 
+    /**
+     * Method to list brands from the database.
+     *
+     * @return - Brand list
+     */
     @SuppressLint("Range")
     public List<Brand> showBrand() {
         List<Brand> brandList = new ArrayList<>();
@@ -47,6 +57,12 @@ public class BrandRepository extends RepositoryHelper {
         return brandList;
     }
 
+    /**
+     * Method to add a brand to the database.
+     *
+     * @param name - Brand name
+     * @return - Brand id
+     */
     public long addBrand(String name) {
         long id = 0;
 
@@ -61,6 +77,12 @@ public class BrandRepository extends RepositoryHelper {
         return id;
     }
 
+    /**
+     * Method to edit the data of a selected brand.
+     * @param id - Brand id
+     * @param name - Brand name
+     * @return - TRUE if the changes have been saved correctly
+     */
     public boolean editBrand(int id, String name) {
         boolean correct;
         ContentValues values = new ContentValues();
@@ -77,6 +99,12 @@ public class BrandRepository extends RepositoryHelper {
         return correct;
     }
 
+    /**
+     * Method to get a brand by name.
+     *
+     * @param name - Brand name
+     * @return - Brand object
+     */
     @SuppressLint("Range")
     public Brand getBrand(String name) {
         Brand brand = null;

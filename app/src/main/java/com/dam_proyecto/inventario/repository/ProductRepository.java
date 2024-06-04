@@ -13,6 +13,11 @@ import com.dam_proyecto.inventario.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that controls methods related to persistence in product databases.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class ProductRepository extends RepositoryHelper {
 
     Context context;
@@ -26,6 +31,18 @@ public class ProductRepository extends RepositoryHelper {
         this.db = helper.getWritableDatabase();
     }
 
+    /**
+     * Method to add a product to the database.
+     *
+     * @param name - Product name
+     * @param brand - Product brand
+     * @param amount - Product amount
+     * @param price - Product price
+     * @param shop - Product shop
+     * @param category - Product category
+     * @param toBuy - Product if it is to buy
+     * @return - Product id
+     */
     public long addProduct(String name, String brand, String amount, String price,
                            String shop, String category, int toBuy) {
         long id = 0;
@@ -47,6 +64,11 @@ public class ProductRepository extends RepositoryHelper {
         return id;
     }
 
+    /**
+     * Method to list products from the database.
+     *
+     * @return - Product list
+     */
     @SuppressLint("Range")
     public List<Product> showProduct() {
         List<Product> productList = new ArrayList<>();
@@ -73,6 +95,12 @@ public class ProductRepository extends RepositoryHelper {
         return productList;
     }
 
+    /**
+     * Method to list products from the database by category.
+     *
+     * @param categoryName - Product category
+     * @return - Product list
+     */
     @SuppressLint("Range")
     public List<Product> showProductByCategory(String categoryName) {
         List<Product> productList = new ArrayList<>();
@@ -99,6 +127,11 @@ public class ProductRepository extends RepositoryHelper {
         return productList;
     }
 
+    /**
+     * Method to list products to buy from the database.
+     *
+     * @return - Product list
+     */
     @SuppressLint("Range")
     public List<Product> showProductToBuy() {
         List<Product> productList = new ArrayList<>();
@@ -126,6 +159,12 @@ public class ProductRepository extends RepositoryHelper {
         return productList;
     }
 
+    /**
+     * Method to view data for a selected product.
+     *
+     * @param id - Product id
+     * @return - Product object
+     */
     @SuppressLint("Range")
     public Product getProduct(int id) {
         Product product = null;
@@ -148,6 +187,19 @@ public class ProductRepository extends RepositoryHelper {
         return product;
     }
 
+    /**
+     * Method to edit the data of a selected product.
+     *
+     * @param id - Product id
+     * @param name - Product name
+     * @param brand - Product brand
+     * @param amount - Product amount
+     * @param price - Product price
+     * @param shop - Product shop
+     * @param category - Product category
+     * @param toBuy - Product if it is to buy
+     * @return - TRUE if the changes have been saved correctly
+     */
     public boolean editProduct(int id, String name, String brand, int amount, double price,
                                String shop, String category, int toBuy) {
         boolean correct;
@@ -171,10 +223,23 @@ public class ProductRepository extends RepositoryHelper {
         return correct;
     }
 
+    /**
+     * Method to edit the product amount after end shopping.
+     *
+     * @param id - Product id
+     * @param amount - New product amount
+     */
     public void editProductAmount(int id, int amount) {
         db.execSQL("UPDATE " + TABLE_PRODUCT + " SET amount = '" + amount + "' WHERE id = '" + id + "'");
     }
 
+    /**
+     * Method to end shopping pressing a button.
+     *
+     * @param id - Product id
+     * @param amount - New product amount
+     * @return - TRUE if the changes have been saved correctly
+     */
     public boolean endShopping(int id, int amount) {
         boolean correct;
 
@@ -189,6 +254,12 @@ public class ProductRepository extends RepositoryHelper {
         return correct;
     }
 
+    /**
+     * Method to delete a product from the database.
+     *
+     * @param id - Product id
+     * @return - TRUE if the changes have been saved correctly
+     */
     public boolean deleteProduct(int id) {
         boolean correct;
 

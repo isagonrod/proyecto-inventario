@@ -13,6 +13,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that controls methods related to persistence in category databases.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class CategoryRepository extends RepositoryHelper {
 
     Context context;
@@ -26,6 +31,11 @@ public class CategoryRepository extends RepositoryHelper {
         this.db = helper.getWritableDatabase();
     }
 
+    /**
+     * Method to list categories from the database.
+     *
+     * @return - Category list
+     */
     public List<Category> showCategory() {
         List<Category> categoryList = new ArrayList<>();
         Category category;
@@ -46,6 +56,12 @@ public class CategoryRepository extends RepositoryHelper {
         return categoryList;
     }
 
+    /**
+     * Method to add a category to the database.
+     *
+     * @param name - Category name
+     * @return - Category id
+     */
     public long addCategory(String name) {
         long id = 0;
 
@@ -60,6 +76,13 @@ public class CategoryRepository extends RepositoryHelper {
         return id;
     }
 
+    /**
+     * Method to edit the data of a selected category.
+     *
+     * @param id - Category id
+     * @param name - Category name
+     * @return - TRUE if the changes have been saved correctly
+     */
     public boolean editCategory(int id, String name) {
         boolean correct;
 
@@ -77,6 +100,12 @@ public class CategoryRepository extends RepositoryHelper {
         return correct;
     }
 
+    /**
+     * Method to get a category by name.
+     *
+     * @param name - Category name
+     * @return - Category object
+     */
     @SuppressLint("Range")
     public Category getCategoryByName(String name) {
         Category category = null;
@@ -94,6 +123,12 @@ public class CategoryRepository extends RepositoryHelper {
         return category;
     }
 
+    /**
+     * Method to get a category by id.
+     *
+     * @param id - Category id
+     * @return - Category object
+     */
     @SuppressLint("Range")
     public Category getCategoryById(int id) {
         Category category = null;
@@ -111,6 +146,11 @@ public class CategoryRepository extends RepositoryHelper {
         return category;
     }
 
+    /**
+     * Method to delete a category from the database.
+     *
+     * @param categoryId - Category id
+     */
     public void deleteCategory(int categoryId) {
         db.execSQL("DELETE FROM " + TABLE_CATEGORY + " WHERE id = '" + categoryId + "'");
     }
