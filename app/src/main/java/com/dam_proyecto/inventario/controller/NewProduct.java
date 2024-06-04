@@ -27,6 +27,13 @@ import com.dam_proyecto.inventario.repository.ShopRepository;
 
 import java.util.List;
 
+/**
+ * Activity related to the product creation function.
+ * Implement the form where the user can add new products
+ * to the inventory.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class NewProduct extends AppCompatActivity {
 
     EditText name, amount, price;

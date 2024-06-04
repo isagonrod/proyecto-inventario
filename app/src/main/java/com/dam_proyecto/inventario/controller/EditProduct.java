@@ -27,6 +27,13 @@ import com.dam_proyecto.inventario.repository.ShopRepository;
 
 import java.util.List;
 
+/**
+ * Activity related to the product editing function.
+ * It implements the form where the user can modify
+ * the data of the selected product.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class EditProduct extends AppCompatActivity {
 
     EditText name, amount, price;
@@ -155,6 +162,9 @@ public class EditProduct extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method to reload the view with the product data once modified.
+     */
     private void reloadView() {
         Intent intent = new Intent(this, GetProduct.class);
         intent.putExtra("ID", id);

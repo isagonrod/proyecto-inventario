@@ -17,6 +17,12 @@ import com.dam_proyecto.inventario.R;
 import com.dam_proyecto.inventario.model.Product;
 import com.dam_proyecto.inventario.repository.ProductRepository;
 
+/**
+ * Activity related to the function of viewing the data of a selected product.
+ * It implements the view where the user can see the data of said product.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class GetProduct extends AppCompatActivity {
 
     TextView name, brand, amount, price, shop, category;

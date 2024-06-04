@@ -12,6 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.dam_proyecto.inventario.R;
 
+/**
+ * Activity through which the text of the user manual is passed so
+ * that it can be seen on the screen.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class AppOperation extends AppCompatActivity {
 
     TextView operationTitle, operationText;

@@ -20,6 +20,12 @@ import com.dam_proyecto.inventario.repository.ProductRepository;
 
 import java.util.List;
 
+/**
+ * Activity related to the function of displaying the product list by category.
+ * Implements the custom list view, using the product adapter.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class ProductListByCategory extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     SearchView searchingText;
@@ -65,6 +71,12 @@ public class ProductListByCategory extends AppCompatActivity implements SearchVi
         return false;
     }
 
+    /**
+     * Method to search a product by name.
+     *
+     * @param s - Keyword
+     * @return - List of products related to the keyword
+     */
     @Override
     public boolean onQueryTextChange(String s) {
         adapter.searchingProduct(s);

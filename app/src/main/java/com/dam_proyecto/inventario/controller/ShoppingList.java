@@ -24,6 +24,12 @@ import com.dam_proyecto.inventario.repository.ProductRepository;
 
 import java.util.List;
 
+/**
+ * Activity related to the function of displaying the complete shopping list.
+ * Implements the custom list view, using the shopping adapter.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class ShoppingList extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     RecyclerView productList;
@@ -94,6 +100,12 @@ public class ShoppingList extends AppCompatActivity implements SearchView.OnQuer
         return false;
     }
 
+    /**
+     * Method to search a product by shop.
+     *
+     * @param s - Keyword
+     * @return - List of products in shopping list related to the keyword
+     */
     @Override
     public boolean onQueryTextChange(String s) {
         adapter.shoppingListByShop(s);
