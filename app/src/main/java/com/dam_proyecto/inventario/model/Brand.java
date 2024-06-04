@@ -1,5 +1,11 @@
 package com.dam_proyecto.inventario.model;
 
+/**
+ * Brand entity used for persistence as a database table.
+ * It is related to Product entity.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class Brand {
 
     private int id;

@@ -1,5 +1,11 @@
 package com.dam_proyecto.inventario.model;
 
+/**
+ * Product entity used for persistence as a database table.
+ * It is related to the rest of the entities in the model.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class Product {
 
     private int id;
