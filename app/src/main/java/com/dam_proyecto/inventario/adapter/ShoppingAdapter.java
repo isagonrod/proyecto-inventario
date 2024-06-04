@@ -20,6 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Adapter for custom shopping list.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ShoppingViewHolder> {
 
     List<Product> productList;
@@ -31,6 +36,16 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         originalProductList.addAll(productList);
     }
 
+    /**
+     * Method where the personalized item of the shopping list that will go in the shopping list
+     * is inserted.
+     *
+     * @param viewGroup - The ViewGroup into which the new View will be added after it is bound to
+     *                    an adapter position.
+     * @param i - The view type of the new View.
+     *
+     * @return - Custom view
+     */
     @NonNull
     @Override
     public ShoppingViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -39,6 +54,13 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         return new ShoppingViewHolder(view);
     }
 
+    /**
+     * Method to fill in the data of the custom shopping list.
+     *
+     * @param holder - The ViewHolder which should be updated to represent the contents of the
+     *                 item at the given position in the data set.
+     * @param position - The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull ShoppingViewHolder holder, int position) {
         holder.nameTextView.setText(productList.get(position).getName());
@@ -47,6 +69,11 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         holder.shopTextView.setText(productList.get(position).getShop());
     }
 
+    /**
+     * Method to search for products by shop in the database.
+     *
+     * @param shop - Keyword
+     */
     @SuppressLint("NotifyDataSetChanged")
     public void shoppingListByShop(String shop) {
         int length = shop.length();
@@ -62,11 +89,22 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         notifyDataSetChanged();
     }
 
+    /**
+     * Method to know the size of the shopping list.
+     *
+     * @return - Size of the shopping list
+     */
     @Override
     public int getItemCount() {
         return productList.size();
     }
 
+    /**
+     * Method to get the item position in the shopping list by id.
+     *
+     * @param itemId - Product id
+     * @return - Item position in shopping list
+     */
     public int getPositionInListFromItemId(int itemId) {
         int originalItemPosition = -1;
 
@@ -80,6 +118,11 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         return originalItemPosition;
     }
 
+    /**
+     * Method to remove an item from the shopping list.
+     *
+     * @param position - Item position
+     */
     public void deleteItem(int position) {
         int originalItemPosition = getPositionInListFromItemId(productList.get(position).getId());
         originalProductList.remove(originalItemPosition);
@@ -88,11 +131,20 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.Shoppi
         notifyItemRangeChanged(position, productList.size());
     }
 
+    /**
+     * Class that controls the view of the screen where the shopping list is.
+     */
     public class ShoppingViewHolder extends RecyclerView.ViewHolder {
 
         EditText amountEditText;
         TextView nameTextView, brandTextView, shopTextView, categoryTextView;
 
+        /**
+         * Method where the personalized shopping list of products appears with all its declared
+         * elements and the functions performed by the buttons that appear on it.
+         *
+         * @param itemView - Item view
+         */
         public ShoppingViewHolder(@NonNull View itemView) {
             super(itemView);
 

@@ -24,6 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Adapter for custom product list.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
     List<Product> productList;
@@ -35,6 +40,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         originalProductList.addAll(productList);
     }
 
+    /**
+     * Method where the personalized item of the product that will go in the product list is inserted.
+     *
+     * @param viewGroup - The ViewGroup into which the new View will be added after it is bound to
+     *                    an adapter position.
+     * @param i - The view type of the new View.
+     *
+     * @return - Custom view
+     */
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -42,6 +56,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return new ProductViewHolder(view);
     }
 
+    /**
+     * Method to fill in the data of the custom product item.
+     *
+     * @param holder - The ViewHolder which should be updated to represent the contents of the
+     *                 item at the given position in the data set.
+     * @param position - The position of the item within the adapter's data set.
+     */
     @SuppressLint("DefaultLocale")
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
@@ -52,11 +73,21 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.category.setText(productList.get(position).getCategory());
     }
 
+    /**
+     * Method to know the size of the product list.
+     *
+     * @return - Size of the product list
+     */
     @Override
     public int getItemCount() {
         return productList.size();
     }
 
+    /**
+     * Method to search for products by name in the database.
+     *
+     * @param searchText - Keyword
+     */
     @SuppressLint("NotifyDataSetChanged")
     public void searchingProduct(String searchText) {
         int length = searchText.length();
@@ -72,18 +103,32 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         notifyDataSetChanged();
     }
 
+    /**
+     * Method to remove an item from the product list.
+     *
+     * @param position - Item position
+     */
     public void deleteItem(int position) {
         productList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, productList.size());
     }
 
+    /**
+     * Class that controls the view of the screen where the product list is.
+     */
     public class ProductViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, amount, price, shop, category;
         Button btnToBuy, btnEdit, btnDelete;
         ProductRepository productRepository;
 
+        /**
+         * Method where the personalized list of products appears with all its declared elements
+         * and the functions performed by the buttons that appear on it.
+         *
+         * @param itemView - Item view
+         */
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -139,6 +184,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             });
         }
 
+        /**
+         * Method to reduce the amount of the product by clicking on it.
+         *
+         * @param position - Product position in the list
+         */
         private void decreaseAmount(int position) {
             Product product = productList.get(position);
             int amount = productList.get(position).getAmount();

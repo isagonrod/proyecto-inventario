@@ -21,6 +21,11 @@ import com.dam_proyecto.inventario.repository.ProductRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Adapter for custom category list.
+ *
+ * @author Isabel María González Rodríguez
+ */
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     List<Category> categoryList;
@@ -32,6 +37,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         originalCategoryList.addAll(categoryList);
     }
 
+    /**
+     * Method where the personalized item of the category that will go in the category list is inserted.
+     *
+     * @param viewGroup - The ViewGroup into which the new View will be added after it is bound to
+     *                    an adapter position.
+     * @param i - The view type of the new View.
+     *
+     * @return - Custom view
+     */
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -40,20 +54,41 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return new CategoryViewHolder(view);
     }
 
+    /**
+     * Method to fill in the data of the custom category list.
+     *
+     * @param holder - The ViewHolder which should be updated to represent the contents of the
+     *                 item at the given position in the data set.
+     * @param position - The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.category.setText(categoryList.get(position).getName());
     }
 
+    /**
+     * Method to know the size of the category list.
+     *
+     * @return - Size of the category list
+     */
     @Override
     public int getItemCount() {
         return categoryList.size();
     }
 
+    /**
+     * Class that controls the view of the screen where the category list is.
+     */
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
         TextView category;
 
+        /**
+         * Method where the personalized list of categories appears with all its declared elements
+         * and the functions performed by the buttons that appears on it.
+         *
+         * @param itemView - Item view
+         */
         @SuppressLint("NotifyDataSetChanged")
         public CategoryViewHolder(@NonNull View itemView) {
             super(itemView);
